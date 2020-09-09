@@ -5,9 +5,12 @@
  */
 package com.mycompany.desempenhopc;
 
+import java.awt.Color;
 import static java.lang.Thread.sleep;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -19,33 +22,44 @@ public class Tela01 extends javax.swing.JFrame {
      * Creates new form Tela01
      */
  public Tela01() {
-            initComponents();
-        
-        new Thread(){
-        
-            public void run(){
-               for(int cont=0; cont<101; cont++)
-                
-                try {
-                    sleep(45);
-                    progressbar.setValue(cont);
-                    if(progressbar.getValue() <= 45){
-                    
-                    
-                    
-                    } else if(progressbar.getValue() >=70){
-                    
-                    
-                    }
-                    
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Tela01.class.getName()).log(Level.SEVERE, null, ex);
-                }
-               new Tela02().setVisible(true);
-                dispose();
-            } 
-        
-        }.start();
+     try {
+         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+         initComponents();
+         
+         new Thread(){
+             
+             public void run(){
+                 for(int cont=0; cont<101; cont++)
+                     
+                     try {
+                         sleep(45);
+                         progressbar.setValue(cont);
+                         if(progressbar.getValue() <= 45){
+                             
+                             
+                             
+                         } else if(progressbar.getValue() >=70){
+                             
+                             
+                         }
+                         
+                     } catch (InterruptedException ex) {
+                         Logger.getLogger(Tela01.class.getName()).log(Level.SEVERE, null, ex);
+                     }
+                 new Tela02().setVisible(true);
+                 dispose();
+             }
+             
+         }.start();
+     } catch (ClassNotFoundException ex) {
+         Logger.getLogger(Tela01.class.getName()).log(Level.SEVERE, null, ex);
+     } catch (InstantiationException ex) {
+         Logger.getLogger(Tela01.class.getName()).log(Level.SEVERE, null, ex);
+     } catch (IllegalAccessException ex) {
+         Logger.getLogger(Tela01.class.getName()).log(Level.SEVERE, null, ex);
+     } catch (UnsupportedLookAndFeelException ex) {
+         Logger.getLogger(Tela01.class.getName()).log(Level.SEVERE, null, ex);
+     }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,8 +82,9 @@ public class Tela01 extends javax.swing.JFrame {
         progressbar.setBackground(new java.awt.Color(0, 102, 102));
         progressbar.setForeground(new java.awt.Color(0, 0, 0));
         progressbar.setPreferredSize(new java.awt.Dimension(146, 10));
+        progressbar.setStringPainted(true);
         getContentPane().add(progressbar);
-        progressbar.setBounds(30, 130, 440, 10);
+        progressbar.setBounds(30, 130, 440, 20);
 
         lblTitulo.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 24)); // NOI18N
         lblTitulo.setText("Carregando...");
