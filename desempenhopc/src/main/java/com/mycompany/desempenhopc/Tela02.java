@@ -266,10 +266,10 @@ public class Tela02 extends javax.swing.JFrame {
             lblMinimo.setText(String.valueOf("Minimo:" +minimoCPU));
           valoresCPU=valoresCPU+CPU;
           medioCPU = valoresCPU.doubleValue()/i;
-            lblMedio.setText(String.valueOf("Médio: " + medioCPU));
+            lblMedio.setText(String.format("Médio: %.2f" + medioCPU));
           
             lblMaximoRam.setText(String.valueOf("Máximo: " + maximoRam));
-            lblMinimoRam.setText(String.valueOf("Mínimo: " + minimoRam));
+            lblMinimoRam.setText(String.format("Mínimo: %.2f" + minimoRam));
           valoresRam = valoresRam+Ram;
           medioRam = valoresRam.doubleValue()/i; 
             lblMedioRam.setText(String.valueOf("Médio: " + medioRam));
@@ -278,7 +278,7 @@ public class Tela02 extends javax.swing.JFrame {
             lblMinimoDisco.setText(String.valueOf("Mínimo: " + minimoDisco));
           valoresDisco = valoresDisco+Disco;
           medioDisco = valoresDisco.doubleValue()/i; 
-            lblMedioDisco.setText(String.valueOf("Médio: " + medioDisco));
+            lblMedioDisco.setText(String.format("Médio: %.2f", medioDisco));
           
 
     }//GEN-LAST:event_btnGeraValorActionPerformed
