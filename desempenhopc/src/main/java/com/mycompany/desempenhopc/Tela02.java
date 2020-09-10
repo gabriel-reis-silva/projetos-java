@@ -261,24 +261,24 @@ public class Tela02 extends javax.swing.JFrame {
           if(Disco < minimoDisco){
               minimoDisco = Disco;
           }
-          //Insere os valores máximos e mínimos em seus campos respectivos
+          //Insere os valores máximos, médios e mínimos em seus campos respectivos
             lblMaximo.setText(String.valueOf("Máximo:" + maximoCPU));
             lblMinimo.setText(String.valueOf("Minimo:" +minimoCPU));
           valoresCPU=valoresCPU+CPU;
           medioCPU = valoresCPU.doubleValue()/i;
-            lblMedio.setText(String.format("Médio: %.2f" + medioCPU));
+            lblMedio.setText(String.format("Médio: %.2f" , medioCPU));
           
             lblMaximoRam.setText(String.valueOf("Máximo: " + maximoRam));
-            lblMinimoRam.setText(String.format("Mínimo: %.2f" + minimoRam));
+            lblMinimoRam.setText(String.valueOf("Mínimo: " + minimoRam));
           valoresRam = valoresRam+Ram;
           medioRam = valoresRam.doubleValue()/i; 
-            lblMedioRam.setText(String.valueOf("Médio: " + medioRam));
+            lblMedioRam.setText(String.format("Médio: %.2f" , medioRam));
             
             lblMaximoDisco.setText(String.valueOf("Máximo: " + maximoDisco));
             lblMinimoDisco.setText(String.valueOf("Mínimo: " + minimoDisco));
           valoresDisco = valoresDisco+Disco;
           medioDisco = valoresDisco.doubleValue()/i; 
-            lblMedioDisco.setText(String.format("Médio: %.2f", medioDisco));
+            lblMedioDisco.setText(String.format("Médio: %.2f" , medioDisco));
           
 
     }//GEN-LAST:event_btnGeraValorActionPerformed
