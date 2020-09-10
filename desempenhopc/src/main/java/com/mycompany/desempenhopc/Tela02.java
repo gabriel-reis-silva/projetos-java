@@ -13,11 +13,23 @@ import java.util.Random;
  * @author gabsg
  */
 public class Tela02 extends javax.swing.JFrame {
-    Integer maximoCPU= 0;
-    Integer minimoCPU= 0;
-    Double medioCPU= 0.0;
+    Integer maximoCPU = 0;
+    Integer minimoCPU = 100;
+    Double medioCPU = 0.0;
     Integer valoresCPU = 0;
-    Integer i = 2;
+    
+    Integer maximoRam = 0;
+    Integer minimoRam = 100;
+    Double medioRam = 0.0;
+    Integer valoresRam = 0;
+    
+    Integer maximoDisco = 0;
+    Integer minimoDisco = 100;
+    Double medioDisco = 0.0;
+    Integer valoresDisco = 0;
+     Random aleat = new Random();
+    
+    Integer i = 0;
     public Tela02() {
         initComponents();
     }
@@ -39,11 +51,17 @@ public class Tela02 extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         lblMinimo = new javax.swing.JLabel();
         lblNomeRAM = new javax.swing.JLabel();
-        pbarRAM = new javax.swing.JProgressBar();
-        pbarHD = new javax.swing.JProgressBar();
+        pbarRam = new javax.swing.JProgressBar();
+        pbarDisco = new javax.swing.JProgressBar();
         lblNomeHD = new javax.swing.JLabel();
         lblMedio = new javax.swing.JLabel();
         lblMaximo = new javax.swing.JLabel();
+        lblMinimoRam = new javax.swing.JLabel();
+        lblMedioRam = new javax.swing.JLabel();
+        lblMaximoRam = new javax.swing.JLabel();
+        lblMinimoDisco = new javax.swing.JLabel();
+        lblMedioDisco = new javax.swing.JLabel();
+        lblMaximoDisco = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -51,22 +69,25 @@ public class Tela02 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 102, 255));
         jPanel1.setLayout(null);
 
+        lblTitulo.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(0, 0, 0));
         lblTitulo.setText("Uso do Computador");
         jPanel1.add(lblTitulo);
-        lblTitulo.setBounds(207, 31, 112, 16);
+        lblTitulo.setBounds(207, 31, 114, 25);
 
+        lblNomeCpu.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
         lblNomeCpu.setForeground(new java.awt.Color(0, 0, 0));
         lblNomeCpu.setText("CPU");
         jPanel1.add(lblNomeCpu);
-        lblNomeCpu.setBounds(46, 79, 60, 16);
+        lblNomeCpu.setBounds(46, 79, 60, 25);
 
         pbarCpu.setBackground(new java.awt.Color(0, 0, 0));
+        pbarCpu.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
         pbarCpu.setForeground(new java.awt.Color(51, 204, 0));
         pbarCpu.setOpaque(false);
         pbarCpu.setStringPainted(true);
         jPanel1.add(pbarCpu);
-        pbarCpu.setBounds(167, 76, 223, 19);
+        pbarCpu.setBounds(167, 76, 223, 22);
 
         btnGeraValor.setText("Ler dados");
         btnGeraValor.addActionListener(new java.awt.event.ActionListener() {
@@ -75,56 +96,100 @@ public class Tela02 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnGeraValor);
-        btnGeraValor.setBounds(220, 239, 87, 32);
+        btnGeraValor.setBounds(10, 280, 87, 32);
 
         btnSair.setText("Sair");
+        btnSair.setPreferredSize(new java.awt.Dimension(87, 32));
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
             }
         });
         jPanel1.add(btnSair);
-        btnSair.setBounds(237, 277, 53, 32);
+        btnSair.setBounds(433, 280, 90, 32);
 
+        lblMinimo.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
         lblMinimo.setForeground(new java.awt.Color(0, 0, 0));
-        lblMinimo.setText("Mínimo");
+        lblMinimo.setText("Mínimo:");
         lblMinimo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(lblMinimo);
-        lblMinimo.setBounds(167, 107, 80, 16);
+        lblMinimo.setBounds(167, 107, 80, 25);
 
+        lblNomeRAM.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
         lblNomeRAM.setForeground(new java.awt.Color(0, 0, 0));
         lblNomeRAM.setText("RAM");
         jPanel1.add(lblNomeRAM);
-        lblNomeRAM.setBounds(46, 142, 60, 16);
+        lblNomeRAM.setBounds(46, 142, 60, 25);
 
-        pbarRAM.setBackground(new java.awt.Color(0, 0, 0));
-        pbarRAM.setForeground(new java.awt.Color(51, 204, 0));
-        pbarRAM.setStringPainted(true);
-        jPanel1.add(pbarRAM);
-        pbarRAM.setBounds(167, 139, 223, 19);
+        pbarRam.setBackground(new java.awt.Color(0, 0, 0));
+        pbarRam.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
+        pbarRam.setForeground(java.awt.Color.green);
+        pbarRam.setStringPainted(true);
+        jPanel1.add(pbarRam);
+        pbarRam.setBounds(167, 139, 223, 22);
 
-        pbarHD.setBackground(new java.awt.Color(0, 0, 0));
-        pbarHD.setForeground(new java.awt.Color(51, 204, 0));
-        pbarHD.setStringPainted(true);
-        jPanel1.add(pbarHD);
-        pbarHD.setBounds(167, 193, 223, 19);
+        pbarDisco.setBackground(new java.awt.Color(0, 0, 0));
+        pbarDisco.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
+        pbarDisco.setForeground(java.awt.Color.green);
+        pbarDisco.setStringPainted(true);
+        jPanel1.add(pbarDisco);
+        pbarDisco.setBounds(167, 193, 223, 22);
 
+        lblNomeHD.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
         lblNomeHD.setForeground(new java.awt.Color(0, 0, 0));
         lblNomeHD.setText("HD");
         jPanel1.add(lblNomeHD);
-        lblNomeHD.setBounds(46, 194, 50, 16);
+        lblNomeHD.setBounds(46, 194, 50, 25);
 
+        lblMedio.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
         lblMedio.setForeground(new java.awt.Color(0, 0, 0));
-        lblMedio.setText("Médio");
+        lblMedio.setText("Médio:");
         lblMedio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(lblMedio);
-        lblMedio.setBounds(255, 107, 80, 16);
+        lblMedio.setBounds(255, 107, 80, 25);
 
+        lblMaximo.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
         lblMaximo.setForeground(new java.awt.Color(0, 0, 0));
-        lblMaximo.setText("Máximo");
+        lblMaximo.setText("Máximo:");
         lblMaximo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(lblMaximo);
-        lblMaximo.setBounds(345, 107, 100, 16);
+        lblMaximo.setBounds(345, 107, 100, 25);
+
+        lblMinimoRam.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
+        lblMinimoRam.setForeground(new java.awt.Color(0, 0, 0));
+        lblMinimoRam.setText("Mínimo:");
+        jPanel1.add(lblMinimoRam);
+        lblMinimoRam.setBounds(160, 170, 80, 25);
+
+        lblMedioRam.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
+        lblMedioRam.setForeground(new java.awt.Color(0, 0, 0));
+        lblMedioRam.setText("Médio:");
+        jPanel1.add(lblMedioRam);
+        lblMedioRam.setBounds(250, 170, 80, 25);
+
+        lblMaximoRam.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
+        lblMaximoRam.setForeground(new java.awt.Color(0, 0, 0));
+        lblMaximoRam.setText("Máximo:");
+        jPanel1.add(lblMaximoRam);
+        lblMaximoRam.setBounds(350, 170, 80, 25);
+
+        lblMinimoDisco.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
+        lblMinimoDisco.setForeground(new java.awt.Color(0, 0, 0));
+        lblMinimoDisco.setText("Mínimo:");
+        jPanel1.add(lblMinimoDisco);
+        lblMinimoDisco.setBounds(160, 230, 80, 25);
+
+        lblMedioDisco.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
+        lblMedioDisco.setForeground(new java.awt.Color(0, 0, 0));
+        lblMedioDisco.setText("Médio:");
+        jPanel1.add(lblMedioDisco);
+        lblMedioDisco.setBounds(250, 230, 80, 25);
+
+        lblMaximoDisco.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
+        lblMaximoDisco.setForeground(new java.awt.Color(0, 0, 0));
+        lblMaximoDisco.setText("Máximo:");
+        jPanel1.add(lblMaximoDisco);
+        lblMaximoDisco.setBounds(350, 230, 80, 25);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,34 +207,80 @@ public class Tela02 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGeraValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeraValorActionPerformed
-  
-          Random aleat = new Random();
+        i++;
+        //Variavel CPU Recebe o número aleatório gerado de 0 até 100
           Integer CPU = aleat.nextInt(101);
-          Integer CPU1 = aleat.nextInt(101);
-   
-          
-          if(CPU > CPU1){
-            maximoCPU = CPU;  
-            minimoCPU = CPU1;  
-            lblMaximo.setText(maximoCPU.toString());
-            lblMinimo.setText(minimoCPU.toString());
-          }else if(CPU1 > CPU){
-            maximoCPU = CPU1;  
-            minimoCPU = CPU;  
-            lblMaximo.setText(maximoCPU.toString());
-            lblMinimo.setText(minimoCPU.toString());
+          Integer Ram = aleat.nextInt(101);
+          Integer Disco = aleat.nextInt(101);
+        //Esse teste lógico define que caso o "uso" da cpu esteja maior que 70% a barra deve
+        //mudar sua cor para vermelho, e caso esteja abaixo disso, deve ficar verde
+          if(CPU > 70){
+          pbarCpu.setForeground(Color.red);
+          }else{
+          pbarCpu.setForeground(Color.green);
           }
-       
-            valoresCPU = valoresCPU + maximoCPU + minimoCPU;
-            pbarCpu.setValue(maximoCPU);
+          
+          
+          if(Ram > 70){
+          pbarRam.setForeground(Color.red);
+          }else{
+          pbarRam.setForeground(Color.green);
+          }
+          
+          
+          if(Disco > 70){
+          pbarDisco.setForeground(Color.red);
+          }else{
+          pbarDisco.setForeground(Color.green);
+          }
+        // Insere o número gerado no valor da barra de progresso ou "uso" no caso 
+          pbarCpu.setValue(CPU);
+          pbarRam.setValue(Ram);
+          pbarDisco.setValue(Disco);
+        //condiciona que: caso o valor da cpu for maior do que o valor maior já registrado
+        //então ele substitui o maior valor anterior
+          if(CPU > maximoCPU){
+              maximoCPU = CPU;
+          }
+        //condiciona que: caso o valor da cpu for menor do que o valor menor já registrado
+        //então ele substitui o menor valor anterior
+          if(CPU < minimoCPU){
+              minimoCPU = CPU;
+          }
+          
+          if(Ram > maximoRam){
+              maximoRam = Ram;
+          }
+          if(Ram < minimoRam){
+              minimoRam = Ram;
+          }
+          
+          if(Disco > maximoDisco){
+              maximoDisco = Disco;
+          }
+          if(Disco < minimoDisco){
+              minimoDisco = Disco;
+          }
+          //Insere os valores máximos e mínimos em seus campos respectivos
+            lblMaximo.setText(String.valueOf("Máximo:" + maximoCPU));
+            lblMinimo.setText(String.valueOf("Minimo:" +minimoCPU));
+          valoresCPU=valoresCPU+CPU;
+          medioCPU = valoresCPU.doubleValue()/i;
+            lblMedio.setText(String.valueOf("Médio: " + medioCPU));
+          
+            lblMaximoRam.setText(String.valueOf("Máximo: " + maximoRam));
+            lblMinimoRam.setText(String.valueOf("Mínimo: " + minimoRam));
+          valoresRam = valoresRam+Ram;
+          medioRam = valoresRam.doubleValue()/i; 
+            lblMedioRam.setText(String.valueOf("Médio: " + medioRam));
             
-            if(minimoCPU <= 0 || maximoCPU <=0 && i == 2){
-            medioCPU = (valoresCPU.doubleValue())/1;
-            }else{
-            medioCPU = (valoresCPU.doubleValue())/i;
-            }
-            lblMedio.setText(String.format("Média: %.2f",medioCPU));
-            i++;
+            lblMaximoDisco.setText(String.valueOf("Máximo: " + maximoDisco));
+            lblMinimoDisco.setText(String.valueOf("Mínimo: " + minimoDisco));
+          valoresDisco = valoresDisco+Disco;
+          medioDisco = valoresDisco.doubleValue()/i; 
+            lblMedioDisco.setText(String.valueOf("Médio: " + medioDisco));
+          
+
     }//GEN-LAST:event_btnGeraValorActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -216,14 +327,20 @@ public class Tela02 extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMaximo;
+    private javax.swing.JLabel lblMaximoDisco;
+    private javax.swing.JLabel lblMaximoRam;
     private javax.swing.JLabel lblMedio;
+    private javax.swing.JLabel lblMedioDisco;
+    private javax.swing.JLabel lblMedioRam;
     private javax.swing.JLabel lblMinimo;
+    private javax.swing.JLabel lblMinimoDisco;
+    private javax.swing.JLabel lblMinimoRam;
     private javax.swing.JLabel lblNomeCpu;
     private javax.swing.JLabel lblNomeHD;
     private javax.swing.JLabel lblNomeRAM;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JProgressBar pbarCpu;
-    private javax.swing.JProgressBar pbarHD;
-    private javax.swing.JProgressBar pbarRAM;
+    private javax.swing.JProgressBar pbarDisco;
+    private javax.swing.JProgressBar pbarRam;
     // End of variables declaration//GEN-END:variables
 }
