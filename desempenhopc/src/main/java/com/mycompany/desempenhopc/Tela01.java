@@ -73,6 +73,7 @@ public class Tela01 extends javax.swing.JFrame {
         progressbar = new javax.swing.JProgressBar();
         lblTitulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(115, 106, 106));
@@ -86,22 +87,35 @@ public class Tela01 extends javax.swing.JFrame {
         getContentPane().add(progressbar);
         progressbar.setBounds(30, 130, 440, 20);
 
+        lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
         lblTitulo.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(0, 0, 0));
         lblTitulo.setText("Carregando...");
         getContentPane().add(lblTitulo);
         lblTitulo.setBounds(170, 80, 155, 49);
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+
+        jLabel1.setFont(new java.awt.Font("Kozuka Gothic Pr6N B", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("\"Gerenciador de Tarefas\"");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addComponent(jLabel1)
+                .addContainerGap(189, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -147,6 +161,7 @@ public class Tela01 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JProgressBar progressbar;
