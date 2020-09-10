@@ -29,24 +29,20 @@ public class Tela01 extends javax.swing.JFrame {
          new Thread(){
              
              public void run(){
+                 //Faz contador contar do 0 até o 100
                  for(int cont=0; cont<101; cont++)
                      
                      try {
+                         //tempo de espera da barra ser preenchida
                          sleep(45);
-                         progressbar.setValue(cont);
-                         if(progressbar.getValue() <= 45){
-                             
-                             
-                             
-                         } else if(progressbar.getValue() >=70){
-                             
-                             
-                         }
-                         
+                         // incrementa contador na barra de progresso
+                         progressbar.setValue(cont);                         
                      } catch (InterruptedException ex) {
                          Logger.getLogger(Tela01.class.getName()).log(Level.SEVERE, null, ex);
                      }
+                 //comando para após "carregar" abrir a próxima tela
                  new Tela02().setVisible(true);
+                 //fecha a tela atual
                  dispose();
              }
              
